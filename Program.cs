@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Resources;
+using System.Drawing.Imaging;
 
 using iText.IO.Image;
 
@@ -27,18 +29,18 @@ namespace taoPDF
             string hk = "Học kì 2";
             taoPDF(masv,tenMon,diem1,diem2,nam,hk);
         }
-        public const string ARIAL = "../resources/vuArial.ttf";
-        public const string imagee = "../resources/SPKT.jpg";
 
-            
         static void taoPDF(int maSV, string tenMon, float diemGiuaKy, float diemCuoiKy,int namHoc, string HK)
         {
-            PdfDocument PDFdoc = new PdfDocument(new PdfWriter("..//doc.pdf"));
+            PdfDocument PDFdoc = new PdfDocument(new PdfWriter("../doc.pdf"));
             PageSize pageSize = PageSize.A4.Rotate();
             Document doc = new Document(PDFdoc, pageSize);
+
+            System.Drawing.Color mau = System.Drawing.Color.FromName("SlateBlue");
+
             Table bangdiem = new Table(UnitValue.CreatePercentArray(2)).UseAllAvailableWidth();
-            Image anh = new Image( ImageDataFactory.Create(imagee));
-            PdfFont font = PdfFontFactory.CreateFont(ARIAL, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
+            Image anh = new Image( ImageDataFactory.Create(Resource1.SPKT, mau));
+            PdfFont font = PdfFontFactory.CreateFont(Resource1.vuArial, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
 
             //ảnh
             anh.SetMarginLeft(100);
