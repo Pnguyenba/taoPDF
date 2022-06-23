@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Resources;
-using System.Drawing.Imaging;
-
-using iText.IO.Image;
+﻿using iText.IO.Image;
 
 using iText.Kernel.Pdf;
 using iText.Kernel.Geom;
@@ -62,7 +57,7 @@ namespace taoPDF
             id.SetFont(font);
             doc.Add(id);
 
-            Paragraph nam = new Paragraph("Năm học: " + namHoc.ToString() + " - " + HK);
+            Paragraph nam = new Paragraph("Năm học: " + namHoc.ToString() + "  -  " + HK);
             nam.SetMarginLeft(100);
             nam.SetMarginRight(100);
             nam.SetMarginBottom(10);
